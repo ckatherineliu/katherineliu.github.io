@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+  <meta charset="utf-8">
+  <title>My Site</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0f172a;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: #020617;
+      padding: 2.5rem 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+      max-width: 600px;
+      width: 100%;
+    }
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 2.2rem;
+    }
+    p {
+      margin-top: 0.3rem;
+      line-height: 1.6;
+    }
+    .links a {
+      color: #38bdf8;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, this is my free website!</h1>
-  <p>Welcome.</p>
+  <main class="card">
+    <h1>Hi, I'm YOUR NAME</h1>
+    <p>Welcome to my GitHub Pages site. I’ll put my projects and experiments here.</p>
+
+    <div class="links">
+      <a href="https://github.com/YOUR-USERNAME" target="_blank">GitHub</a>
+      <!-- Add more links if you want -->
+    </div>
+  </main>
 </body>
 </html>
