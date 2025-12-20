@@ -1,0 +1,421 @@
+/* === GLOBAL SETTINGS === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #050505;
+  color: #f7f7f7;
+  line-height: 1.7;
+}
+
+/* Use a max-width for nice reading experience */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* === COLOR PALETTE ===
+   Charcoal: #121212
+   Soft white: #f7f7f7
+   Accent 1 (coral): #ff6363
+   Accent 2 (electric blue): #4f9dff
+   Warm beige: #f7e3c3
+*/
+
+a {
+  color: #ff6363;
+  text-decoration: none;
+}
+a:hover {
+  color: #f7e3c3;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background: rgba(5, 5, 5, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(16px);
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.nav-brand span {
+  color: #ff6363;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  border-color: #ff6363;
+}
+
+/* === HERO / HEADER === */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+  padding-top: 2.5rem;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero-text h1 span {
+  color: #ff6363;
+}
+
+.hero-subtitle {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #f7e3c3;
+}
+
+.hero-description {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #d5d5d5;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, #ff6363, #4f9dff);
+  color: #050505;
+  font-weight: 600;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.btn-outline {
+  border-color: rgba(247, 247, 247, 0.3);
+  color: #f7f7f7;
+}
+.btn-outline:hover {
+  background: rgba(247, 247, 247, 0.06);
+}
+
+/* === HERO IMAGE === */
+.hero-image-wrapper {
+  position: relative;
+}
+
+.hero-image-card {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(247, 247, 247, 0.08);
+  background: radial-gradient(circle at top left, #4f9dff20 0, #050505 55%);
+  padding: 0.75rem;
+}
+
+.hero-image-card img {
+  width: 100%;
+  display: block;
+  border-radius: 1.2rem;
+  object-fit: cover;
+  height: 100%;
+  max-height: 380px;
+}
+
+/* Overlay label on image */
+.hero-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 18px;
+  background: rgba(5, 5, 5, 0.85);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  border: 1px solid rgba(247, 247, 247, 0.15);
+}
+
+/* === SECTION TITLES & LAYOUT === */
+.section {
+  margin-top: 3.5rem;
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.section-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #f7e3c3;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* === CARDS & GRIDS === */
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  background: #121212;
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(247, 247, 247, 0.06);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.5rem;
+}
+
+.card-meta {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #f7e3c3;
+  margin-bottom: 0.75rem;
+}
+
+.card-body {
+  font-size: 0.95rem;
+  color: #d5d5d5;
+}
+
+.chip-row {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip {
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid rgba(247, 247, 247, 0.22);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+/* === TIMELINE STYLE (for Work & Education) === */
+.timeline {
+  border-left: 1px solid rgba(247, 247, 247, 0.16);
+  margin-left: 0.5rem;
+  padding-left: 1.4rem;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.1rem;
+  top: 0.3rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ff6363;
+  box-shadow: 0 0 0 5px rgba(255, 99, 99, 0.18);
+}
+
+/* === FOOTER === */
+footer {
+  border-top: 1px solid rgba(247, 247, 247, 0.06);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9b9b9b;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+You can tweak colors and fonts to match your personality (fashion/author/artistic).
+
+3. Home / About Me (index.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Name – Author & Founder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">YOUR <span>NAME</span></div>
+      <nav class="nav-links">
+        <a href="index.html" class="active">About</a>
+        <a href="work.html">Work</a>
+        <a href="education.html">Education</a>
+        <a href="interests.html">Interests</a>
+        <a href="social-impact.html">Impact</a>
+        <a href="growth.html">Mindset</a>
+        <a href="links.html">Links</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO / ABOUT -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          Author, <span>Founder</span>,  
+          and Optimistic Storyteller
+        </h1>
+        <p class="hero-subtitle">Modern • Creative • Fashion-forward • Human</p>
+        <p class="hero-description">
+          I write, build, and experiment at the intersection of lifestyle, culture, and technology.
+          My work spans editorial storytelling, brand building, and social impact projects that
+          celebrate growth, curiosity, and courage.
+        </p>
+        <div class="hero-actions">
+          <a href="work.html" class="btn btn-primary">Explore my work</a>
+          <a href="links.html" class="btn btn-outline">Connect on social</a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <!-- Replace profile.jpg with your own image inside /images -->
+          <img src="images/profile.jpg" alt="Portrait of Your Name" />
+        </div>
+        <div class="hero-tag">Author • Founder • Forever Learning</div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-kicker">About Me</div>
+        <h2 class="section-title">A Life in Draft, Always Evolving</h2>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <p>
+            I’m a <strong>[your roles: e.g., author, creative strategist, lifestyle founder]</strong> who
+            believes that good stories can move culture and good systems can change lives.
+            My work blends editorial craft with entrepreneurial energy and a deep curiosity about
+            how people actually live, dress, and dream.
+          </p>
+          <br />
+          <p>
+            On this site you’ll find snapshots of my work, my unconventional path through education,
+            the hobbies that keep me grounded, and the impact projects that remind me why any of this matters.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Quick Snapshot</h3>
+          <div class="card-body">
+            <ul style="list-style:none; padding-left:0; font-size:0.95rem;">
+              <li><strong>Based in:</strong> [City / Country]</li>
+              <li><strong>Working on:</strong> [book, brand, project]</li>
+              <li><strong>Keywords:</strong> fashion, lifestyle, impact, storytelling, tech-curious</li>
+              <li><strong>Currently learning:</strong> [skill / habit / tool]</li>
+            </ul>
+
+            <div class="chip-row" style="margin-top:1rem;">
+              <span class="chip">Author</span>
+              <span class="chip">Founder</span>
+              <span class="chip">Creative</span>
+              <span class="chip">Growth Mindset</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Your Name. Built with curiosity and optimism.
+  </footer>
+
+  <script>
+    // Set footer year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
