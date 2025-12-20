@@ -1,375 +1,310 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Katherine Liu – AI & Future Interfaces</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Katherine Liu – building modern, AI-driven products and experiences." />
-  <style>
-    :root {
-      --bg: #020617;
-      --fg: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-2: #a855f7;
-      --accent-soft: rgba(56, 189, 248, 0.16);
-      --border: rgba(148, 163, 184, 0.35);
-      --glass: rgba(15, 23, 42, 0.82);
-    }
+/* === GLOBAL SETTINGS === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #050505;
+  color: #f7f7f7;
+  line-height: 1.7;
+}
 
-    body {
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      color: var(--fg);
-      background:
-        radial-gradient(circle at 0% 0%, #1d4ed8 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, #a855f7 0, transparent 50%),
-        radial-gradient(circle at 80% 0%, #22c55e 0, transparent 45%),
-        var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
+/* Use a max-width for nice reading experience */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
 
-    .shell {
-      position: relative;
-      width: 100%;
-      max-width: 1100px;
-      min-height: 70vh;
-      border-radius: 2rem;
-      overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      box-shadow: 0 40px 120px rgba(15, 23, 42, 0.95);
-      background:
-        radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.2), transparent 60%),
-        radial-gradient(circle at 90% 100%, rgba(168, 85, 247, 0.18), transparent 55%),
-        rgba(15, 23, 42, 0.92);
-    }
+/* === COLOR PALETTE ===
+   Charcoal: #121212
+   Soft white: #f7f7f7
+   Accent 1 (coral): #ff6363
+   Accent 2 (electric blue): #4f9dff
+   Warm beige: #f7e3c3
+*/
 
-    /* Blurred background portrait */
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      opacity: 0.42;
-      mix-blend-mode: screen;
-      overflow: hidden;
-    }
+a {
+  color: #ff6363;
+  text-decoration: none;
+}
+a:hover {
+  color: #f7e3c3;
+}
 
-    .hero-bg img {
-      width: 130%;
-      height: 130%;
-      object-fit: cover;
-      filter: blur(12px) saturate(1.4);
-      transform: translate(-10%, -6%);
-    }
+/* === NAVBAR === */
+.navbar {
+  background: rgba(5, 5, 5, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(16px);
+}
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.96) 0%,
-        rgba(15, 23, 42, 0.90) 45%,
-        rgba(15, 23, 42, 0.78) 100%
-      );
-      backdrop-filter: blur(20px);
-    }
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-      gap: 3rem;
-      padding: 2.8rem 3rem;
-    }
+.nav-brand {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
 
-    @media (max-width: 900px) {
-      body { padding: 1.25rem; }
-      .shell { min-height: auto; }
-      .grid {
-        grid-template-columns: 1fr;
-        padding: 2.2rem 1.6rem 1.9rem;
-        gap: 2.4rem;
-      }
-    }
+.nav-brand span {
+  color: #ff6363;
+}
 
-    .pill-row {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.35rem 0.9rem 0.35rem 0.4rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
-      margin-bottom: 1.8rem;
-    }
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
 
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #bbf7d0 0, #22c55e 45%, #16a34a 100%);
-      box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
-    }
+.nav-links a {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid transparent;
+}
 
-    .pill-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-    }
+.nav-links a:hover,
+.nav-links a.active {
+  border-color: #ff6363;
+}
 
-    h1 {
-      font-size: 3rem;
-      letter-spacing: 0.03em;
-      margin-bottom: 0.7rem;
-    }
+/* === HERO / HEADER === */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+  padding-top: 2.5rem;
+}
 
-    @media (max-width: 600px) {
-      h1 { font-size: 2.3rem; }
-    }
+.hero-text h1 {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 
-    .headline {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 30rem;
-      line-height: 1.7;
-      margin-bottom: 1.9rem;
-    }
+.hero-text h1 span {
+  color: #ff6363;
+}
 
-    .gradient-text {
-      background: linear-gradient(120deg, #38bdf8, #a855f7, #22c55e);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+.hero-subtitle {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #f7e3c3;
+}
 
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      align-items: center;
-      margin-bottom: 1.2rem;
-    }
+.hero-description {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #d5d5d5;
+}
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.6rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: var(--fg);
-      text-decoration: none;
-      font-size: 0.9rem;
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(12px);
-      transition: all 0.18s ease-out;
-    }
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
 
-    .button.primary {
-      border-color: transparent;
-      background: radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.45), transparent 55%),
-                  radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.4), transparent 55%),
-                  linear-gradient(135deg, #0ea5e9, #6366f1, #a855f7);
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.9);
-    }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-    .button:hover {
-      transform: translateY(-1px);
-      border-color: var(--accent);
-      box-shadow: 0 16px 45px rgba(15, 23, 42, 0.9);
-      background-color: rgba(15, 23, 42, 0.98);
-    }
+.btn-primary {
+  background: linear-gradient(120deg, #ff6363, #4f9dff);
+  color: #050505;
+  font-weight: 600;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
 
-    .button.primary:hover {
-      filter: brightness(1.05);
-    }
+.btn-outline {
+  border-color: rgba(247, 247, 247, 0.3);
+  color: #f7f7f7;
+}
+.btn-outline:hover {
+  background: rgba(247, 247, 247, 0.06);
+}
 
-    .button span.icon {
-      font-size: 1.1rem;
-      line-height: 1;
-    }
+/* === HERO IMAGE === */
+.hero-image-wrapper {
+  position: relative;
+}
 
-    .small-note {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
+.hero-image-card {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(247, 247, 247, 0.08);
+  background: radial-gradient(circle at top left, #4f9dff20 0, #050505 55%);
+  padding: 0.75rem;
+}
 
-    /* Right column: quick stats / nav */
-    .right {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 2rem;
-    }
+.hero-image-card img {
+  width: 100%;
+  display: block;
+  border-radius: 1.2rem;
+  object-fit: cover;
+  height: 100%;
+  max-height: 380px;
+}
 
-    .panel {
-      background: var(--glass);
-      border-radius: 1.5rem;
-      padding: 1.4rem 1.5rem;
-      border: 1px solid var(--border);
-      box-shadow:
-        0 18px 35px rgba(15, 23, 42, 0.85),
-        0 0 0 1px rgba(15, 23, 42, 0.8) inset;
-    }
+/* Overlay label on image */
+.hero-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 18px;
+  background: rgba(5, 5, 5, 0.85);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  border: 1px solid rgba(247, 247, 247, 0.15);
+}
 
-    .panel-title {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 0.65rem;
-    }
+/* === SECTION TITLES & LAYOUT === */
+.section {
+  margin-top: 3.5rem;
+}
 
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-    }
+.section-header {
+  margin-bottom: 1.5rem;
+}
 
-    .chip {
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      font-size: 0.8rem;
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.9);
-    }
+.section-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #f7e3c3;
+}
 
-    .nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 0.4rem;
-      font-size: 0.9rem;
-    }
+.section-title {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
 
-    .nav-links a {
-      color: var(--fg);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem 0.2rem;
-      border-bottom: 1px dashed rgba(148, 163, 184, 0.4);
-      transition: color 0.16s ease-out, border-color 0.16s ease-out;
-    }
+/* === CARDS & GRIDS === */
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+}
 
-    .nav-links a span {
-      opacity: 0.85;
-    }
+.card {
+  background: #121212;
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(247, 247, 247, 0.06);
+}
 
-    .nav-links a .arrow {
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
+.card-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.5rem;
+}
 
-    .nav-links a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
+.card-meta {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #f7e3c3;
+  margin-bottom: 0.75rem;
+}
 
-    .footer-note {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.8rem;
-    }
+.card-body {
+  font-size: 0.95rem;
+  color: #d5d5d5;
+}
 
-    @media (max-width: 900px) {
-      .right {
-        gap: 1.6rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="shell">
-    <!-- Background portrait (you will replace the src with your image) -->
-    <div class="hero-bg">
-      <img src="images/katherine-portrait.jpg" alt="Portrait of Katherine Liu" />
-    </div>
-    <div class="hero-overlay"></div>
+.chip-row {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
 
-    <div class="grid">
-      <!-- LEFT: main hero -->
-      <section>
-        <div class="pill-row">
-          <div class="status-dot"></div>
-          <div class="pill-label">Designing the interface to the future of AI</div>
-        </div>
+.chip {
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid rgba(247, 247, 247, 0.22);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
 
-        <h1>
-          Katherine Liu<br />
-          <span class="gradient-text">AI‑driven product & experience design</span>
-        </h1>
+/* === TIMELINE STYLE (for Work & Education) === */
+.timeline {
+  border-left: 1px solid rgba(247, 247, 247, 0.16);
+  margin-left: 0.5rem;
+  padding-left: 1.4rem;
+}
 
-        <p class="headline">
-          I design and build modern, AI‑first products — from intelligent interfaces to tools that
-          augment human creativity and decision‑making.
-        </p>
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
 
-        <div class="cta-row">
-          <a href="/work.html" class="button primary">
-            <span class="icon">⚡</span>
-            <span>View selected work</span>
-          </a>
-          <a href="mailto:your.email@example.com" class="button">
-            <span class="icon">✉️</span>
-            <span>Say hello</span>
-          </a>
-        </div>
+.timeline-dot {
+  position: absolute;
+  left: -1.1rem;
+  top: 0.3rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ff6363;
+  box-shadow: 0 0 0 5px rgba(255, 99, 99, 0.18);
+}
 
-        <div class="small-note">
-          Currently exploring: AI‑assisted creativity tools, ambient intelligence, and human‑centered
-          models for everyday interfaces.
-        </div>
-      </section>
+/* === FOOTER === */
+footer {
+  border-top: 1px solid rgba(247, 247, 247, 0.06);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9b9b9b;
+}
 
-      <!-- RIGHT: quick info / navigation -->
-      <aside class="right">
-        <div class="panel">
-          <div class="panel-title">Focus</div>
-          <div class="chip-row">
-            <span class="chip">AI‑driven UX</span>
-            <span class="chip">Interaction design</span>
-            <span class="chip">Prototyping</span>
-            <span class="chip">Creative tools</span>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-title">Explore</div>
-          <nav class="nav-links">
-            <a href="/work.html">
-              <span>Selected work &amp; case studies</span>
-              <span class="arrow">→</span>
-            </a>
-            <a href="/about.html">
-              <span>About, background &amp; interests</span>
-              <span class="arrow">→</span>
-            </a>
-            <a href="https://github.com/ckatherineliu" target="_blank" rel="noopener noreferrer">
-              <span>GitHub – projects &amp; experiments</span>
-              <span class="arrow">↗</span>
-            </a>
-          </nav>
-          <div class="footer-note">
-            This site is built on GitHub Pages with a custom, AI‑inspired interface.
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</body>
-</html>
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
