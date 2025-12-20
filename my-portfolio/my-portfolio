@@ -1,0 +1,15 @@
+my-portfolio/
+│
+├─ index.html            (About Me / Home)
+├─ work.html             (Work Experiences)
+├─ education.html        (Education Background)
+├─ interests.html        (Interests & Hobbies)
+├─ social-impact.html    (Social Impact)
+├─ growth.html           (Growth Mindset)
+├─ links.html            (Social Media Links)
+├─ style.css             (Shared styles)
+└─ images/
+   ├─ profile.jpg
+   ├─ work1.jpg
+   ├─ hobby1.jpg
+   └─ any-other-images.jpg
