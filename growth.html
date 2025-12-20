@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Name – Growth Mindset</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="nav-brand">YOUR <span>NAME</span></div>
+    <nav class="nav-links">
+      <a href="index.html">About</a>
+      <a href="work.html">Work</a>
+      <a href="education.html">Education</a>
+      <a href="interests.html">Interests</a>
+      <a href="social-impact.html">Impact</a>
+      <a href="growth.html" class="active">Mindset</a>
+      <a href="links.html">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section">
+    <div class="section-header">
+      <div class="section-kicker">Mindset</div>
+      <h1 class="section-title">Always in Beta</h1>
+    </div>
+
+    <div class="grid-2">
+      <article class="card">
+        <h3 class="card-title">How I Approach Growth</h3>
+        <div class="card-body">
+          <p>
+            Share your philosophy on growth: how you handle failure, feedback, and change.
+            Mention habits like reflection, journaling, therapy, coaching, or experimentation.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Currently Learning</h3>
+        <div class="card-body">
+          <ul style="list-style:none; padding-left:0;">
+            <li><strong>Skill 1</strong> – why you chose it</li>
+            <li><strong>Skill 2</strong> – how you’re learning it</li>
+            <li><strong>Skill 3</strong> – how it feeds your future vision</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Your Name.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
