@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Name – Interests & Hobbies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="nav-brand">YOUR <span>NAME</span></div>
+    <nav class="nav-links">
+      <a href="index.html">About</a>
+      <a href="work.html">Work</a>
+      <a href="education.html">Education</a>
+      <a href="interests.html" class="active">Interests</a>
+      <a href="social-impact.html">Impact</a>
+      <a href="growth.html">Mindset</a>
+      <a href="links.html">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section">
+    <div class="section-header">
+      <div class="section-kicker">Beyond Work</div>
+      <h1 class="section-title">Interests & Hobbies</h1>
+    </div>
+
+    <div class="grid-2">
+      <!-- Hobby 1: fashion / style -->
+      <article class="card">
+        <h3 class="card-title">Style as Storytelling</h3>
+        <div class="card-body">
+          <div style="display:flex; gap:1rem; align-items:flex-start; flex-wrap:wrap;">
+            <img src="images/hobby1.jpg"
+                 alt="Fashion or style related"
+                 style="width:140px; border-radius:1rem; object-fit:cover;" />
+            <p>
+              Describe how fashion, styling, or aesthetics show up in your life—
+              how you use clothes and visual details to express identity, culture, and mood.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hobby 2: creative rituals -->
+      <article class="card">
+        <h3 class="card-title">Creative Rituals</h3>
+        <div class="card-body">
+          <p>
+            Talk about your creative routines: writing, photography, painting, reading, or
+            anything that keeps you inspired and grounded.
+          </p>
+        </div>
+      </article>
+
+      <!-- Hobby 3: wellness / movement -->
+      <article class="card">
+        <h3 class="card-title">Movement & Mindfulness</h3>
+        <div class="card-body">
+          <p>
+            Share any practices (yoga, running, walks, meditation) that keep your mind clear and
+            help you stay optimistic and resilient.
+          </p>
+        </div>
+      </article>
+
+      <!-- Hobby 4: add more as you like -->
+      <article class="card">
+        <h3 class="card-title">Curated Curiosity</h3>
+        <div class="card-body">
+          <p>
+            Books, podcasts, exhibitions, or playlists you love. You can even turn this into a
+            little recommendation list.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Your Name.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
