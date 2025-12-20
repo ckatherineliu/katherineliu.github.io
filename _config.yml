@@ -1,0 +1,42 @@
+title: Your Name
+description: Minimal personal site
+baseurl: ""          # leave "" for user.github.io
+url: "https://yourusername.github.io"
+
+theme: null          # we’ll use our own layout
+markdown: kramdown
+
+author:
+  name: Your Name
+  email: you@example.com
+  location: Your City
+  tagline: Product designer & developer
+  social:
+    github: yourgithub
+    linkedin: yourlinkedin
+    twitter: yourtwitter
+    instagram: yourinsta
+
+# Navigation (controls the top menu)
+nav:
+  - title: About
+    url: /about/
+  - title: Work
+    url: /work/
+  - title: Education
+    url: /education/
+  - title: Social Impact
+    url: /social-impact/
+  - title: Life
+    url: /life/
+  - title: Goals
+    url: /goals/
+  - title: Posts
+    url: /posts/
+
+permalink: /:categories/:year/:month/:day/:title/
+
+# GitHub Pages defaults
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
