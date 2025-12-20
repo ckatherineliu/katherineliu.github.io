@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Name – Author & Founder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">YOUR <span>NAME</span></div>
+      <nav class="nav-links">
+        <a href="index.html" class="active">About</a>
+        <a href="work.html">Work</a>
+        <a href="education.html">Education</a>
+        <a href="interests.html">Interests</a>
+        <a href="social-impact.html">Impact</a>
+        <a href="growth.html">Mindset</a>
+        <a href="links.html">Links</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          Author, <span>Founder</span>,
+          and Lifestyle Storyteller
+        </h1>
+        <p class="hero-subtitle">Modern • Creative • Fashion‑minded • Optimistic</p>
+        <p class="hero-description">
+          I build stories, brands, and experiences at the intersection of fashion, culture, and self‑growth.
+          This is where my work, experiments, and evolving life philosophy live.
+        </p>
+        <div class="hero-actions">
+          <a href="work.html" class="btn btn-primary">See my work</a>
+          <a href="links.html" class="btn btn-outline">Connect online</a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <!-- Put your image as images/profile.jpg -->
+          <img src="images/profile.jpg" alt="Portrait of Your Name" />
+        </div>
+        <div class="hero-tag">Author • Founder • Forever Learning</div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-kicker">About Me</div>
+        <h2 class="section-title">A Life in Draft, Always Evolving</h2>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <p>
+            I’m a <strong>[your roles: author / fashion‑focused founder / creative strategist]</strong>
+            exploring how style, storytelling, and mindset shape who we become.
+          </p>
+          <br />
+          <p>
+            This site is a living archive of my work, my education (formal and self‑taught),
+            my interests and hobbies, and the impact projects that keep me grounded in something
+            bigger than myself.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Quick Snapshot</h3>
+          <div class="card-body">
+            <ul style="list-style:none; padding-left:0; font-size:0.95rem;">
+              <li><strong>Based in:</strong> [City, Country]</li>
+              <li><strong>Currently building:</strong> [brand / book / platform]</li>
+              <li><strong>Keywords:</strong> fashion, lifestyle, growth, creativity</li>
+              <li><strong>Currently learning:</strong> [skill or topic]</li>
+            </ul>
+            <div class="chip-row" style="margin-top:1rem;">
+              <span class="chip">Author</span>
+              <span class="chip">Founder</span>
+              <span class="chip">Creative</span>
+              <span class="chip">Growth Mindset</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Your Name. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
