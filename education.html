@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Name – Education</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="nav-brand">YOUR <span>NAME</span></div>
+    <nav class="nav-links">
+      <a href="index.html">About</a>
+      <a href="work.html">Work</a>
+      <a href="education.html" class="active">Education</a>
+      <a href="interests.html">Interests</a>
+      <a href="social-impact.html">Impact</a>
+      <a href="growth.html">Mindset</a>
+      <a href="links.html">Links</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section">
+    <div class="section-header">
+      <div class="section-kicker">Education</div>
+      <h1 class="section-title">How I Learned & Unlearned</h1>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <p>
+          Share your formal education and also your self‑directed learning: books, online courses,
+          mentors, and real‑world experience that shaped your perspective.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Highlights</h3>
+        <div class="card-body">
+          <ul style="list-style:none; padding-left:0;">
+            <li><strong>[Degree / Field]</strong> – [University], [Year]</li>
+            <li><strong>[Course / Certification]</strong> – [Organization], [Year]</li>
+            <li><strong>Independent Study:</strong> [topics like fashion history, branding, psychology]</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="margin-top:2.5rem;">
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3 class="card-title">[Degree / Program]</h3>
+          <div class="card-meta">[Institution] • [Years]</div>
+          <p class="card-body">
+            Mention focus areas, key projects, thesis, or why this experience was pivotal.
+          </p>
+        </article>
+
+        <!-- Add more timeline entries as needed -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Your Name.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
