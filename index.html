@@ -1,56 +1,231 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>My Site</title>
+  <meta charset="utf-8" />
+  <title>Katherine Liu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+    * { box-sizing: border-box; }
     body {
-      font-family: system-ui, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #0f172a;
-      color: #e5e7eb;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: radial-gradient(circle at top left, #1d4ed8 0, transparent 55%),
+                  radial-gradient(circle at bottom right, #38bdf8 0, transparent 50%),
+                  var(--bg);
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      padding: 2rem;
     }
     .card {
-      background: #020617;
-      padding: 2.5rem 3rem;
-      border-radius: 1rem;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
-      max-width: 600px;
       width: 100%;
+      max-width: 900px;
+      background: linear-gradient(145deg, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+      border-radius: 1.5rem;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.65);
+      padding: 2.5rem 3rem;
+      border: 1px solid rgba(148,163,184,0.25);
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+    }
+    @media (max-width: 768px) {
+      body { padding: 1.5rem; }
+      .card {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+      }
     }
     h1 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 2.2rem;
+      margin: 0 0 0.5rem;
+      font-size: 2.4rem;
+      letter-spacing: 0.03em;
     }
-    p {
-      margin-top: 0.3rem;
-      line-height: 1.6;
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+    p { margin: 0 0 0.6rem; line-height: 1.6; }
+    .subtitle {
+      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 1rem;
+    }
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      margin-right: 0.5rem;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
     }
     .links a {
-      color: #38bdf8;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--text-main);
       text-decoration: none;
-      margin-right: 1rem;
+      font-size: 0.85rem;
+      transition: all 0.18s ease-out;
+      background: rgba(15,23,42,0.7);
     }
     .links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(15,23,42,0.95);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+    .section {
+      margin-bottom: 1.5rem;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .tag {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .right {
+      border-left: 1px solid rgba(148,163,184,0.3);
+      padding-left: 2rem;
+    }
+    @media (max-width: 768px) {
+      .right {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(148,163,184,0.3);
+        padding-top: 1.75rem;
+      }
+    }
+    .project-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.25rem 0 0;
+    }
+    .project-list li {
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+    }
+    .project-list a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .project-list a:hover {
       text-decoration: underline;
+    }
+    .small {
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
   </style>
 </head>
 <body>
   <main class="card">
-    <h1>Hi, I'm YOUR NAME</h1>
-    <p>Welcome to my GitHub Pages site. I’ll put my projects and experiments here.</p>
+    <!-- LEFT SIDE: intro -->
+    <section>
+      <div class="pill">
+        <span class="pill-dot"></span>
+        Portfolio
+      </div>
+      <h1>Hi, I’m Katherine.</h1>
+      <p class="subtitle">
+        Short intro about who you are, what you study or work on, and what you’re interested in.
+        You can change all of this text to describe yourself.
+      </p>
 
-    <div class="links">
-      <a href="https://github.com/YOUR-USERNAME" target="_blank">GitHub</a>
-      <!-- Add more links if you want -->
-    </div>
+      <div class="section">
+        <h2>About</h2>
+        <p>
+          Write 3–4 sentences about yourself here: your background, what you’re learning or building,
+          and what you’re excited about next.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Links</h2>
+        <div class="links">
+          <a href="https://github.com/ckatherineliu" target="_blank">GitHub</a>
+          <!-- Add/remove links as needed -->
+          <!-- <a href="https://www.linkedin.com/in/..." target="_blank">LinkedIn</a> -->
+          <!-- <a href="mailto:you@example.com">Email</a> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT SIDE: projects / skills -->
+    <section class="right">
+      <div class="section">
+        <h2>Projects</h2>
+        <ul class="project-list">
+          <li>
+            <strong>Project One</strong> – one line about what it does.
+            <br />
+            <span class="small">
+              <a href="https://github.com/ckatherineliu/PROJECT-REPO-1" target="_blank">Code</a>
+              <!-- | <a href="https://live-demo-url.com" target="_blank">Live demo</a> -->
+            </span>
+          </li>
+          <li>
+            <strong>Project Two</strong> – another project description here.
+            <br />
+            <span class="small">
+              <a href="https://github.com/ckatherineliu/PROJECT-REPO-2" target="_blank">Code</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Skills</h2>
+        <div class="tag-row">
+          <span class="tag">HTML &amp; CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Python</span>
+          <!-- Add or remove tags based on what you know -->
+        </div>
+      </div>
+    </section>
   </main>
 </body>
 </html>
